@@ -14,6 +14,7 @@ def reduce(source_array, starting_point = nil)
     source_array.reduce(starting_point) { |memo, element| yield(memo, element) }
   else
     source_array.reduce() { |memo, element| yield(memo, element) }
+  end  
 end
 
 #sum = reduce(source_array) { |val, element| val + element }
