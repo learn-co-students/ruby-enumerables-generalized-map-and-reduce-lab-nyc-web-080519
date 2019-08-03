@@ -26,26 +26,28 @@ map([1, 2, 3, -9]) {|n| n **2}
 
 
 
-def reduce(array, value) { 
+def reduce(array, value = 0) { 
   
   if value != false && value != true
-   if (value < 0) { 
+    
+   if (value < 0)
     acc = array[0]
-   } else {
+   else
     acc = value
-   }
+   end
+   
    array.each do |i| {
     acc = yield(array[i], acc)
    }
-   return acc;
+   return acc
   }
   
-else
-  array.each do {
-    acc = yield(acc)
-   }
-   return acc
- end
+# else
+#   array.each do {
+#     acc = yield(acc)
+#   }
+#   return acc
+# end
 end
 
 
