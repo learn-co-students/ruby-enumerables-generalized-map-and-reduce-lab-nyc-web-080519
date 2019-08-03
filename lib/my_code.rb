@@ -8,19 +8,19 @@ def map(array)
   new_array
 end
 
-def reduce(array, start = 0)
-  if start != 0
-    memo = start
-  elsif array.size
-    memo = array[0]
-    array = array.drop(1)
-  else
+def reduce(array, start = {})
+  if array.size === 0
     return 'empty array'
   end
 
-  array.each do |n|
+  if start != {}
+    array << start
+  end
+
+  memo = array[0]
+  array.drop(1).each do |n|
     memo = yield(memo, n)
-  end 
+  end
   memo
 end
 
